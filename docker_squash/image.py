@@ -392,6 +392,9 @@ class Image(object):
         # Generate sha256sum of the JSON data, may be handy
         sha = hashlib.sha256(json_data.encode('utf-8')).hexdigest()
 
+        self.log.debug("Metadata:\n%s\n" % json_data)
+        self.log.debug("image id:%s" % sha)
+
         return json_data, sha
 
     def _generate_repositories_json(self, repositories_file, image_id, name, tag):
